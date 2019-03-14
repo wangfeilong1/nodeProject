@@ -1,0 +1,28 @@
+1、实现接口
+	1、创建api文件夹
+	  复制routes/users.js到api下
+	2、app.js中添加如下代码
+		var apiUsersRouter = require('./api/users');
+
+		app.use('/api/users', apiUsersRouter);
+	3、改造api/users.js中的方法
+		一般情况下由 res.render换为 res.send()
+		3.1 api/users
+			无需判断是否登录了，把年龄的分类去掉了，res.send({})
+		3.2 api/users/add 删掉了
+		3.3 api/users/addAction 
+		3.4 api/users/remove
+		3.5 api/users/updateAction
+		3.6 api/users/search
+		3.7 api/users/ageSearch
+		3.8 api/users/sort
+		3.9 api/users/distinct
+		编辑接口文档
+		线上接口文档
+			https://swagger.io/
+			https://blog.csdn.net/sanyaoxu_2/article/details/80555328
+		
+		postman 可以用来测试接口是否可用
+2、发送短信验证码
+	阿里云----云通讯 ---- 短信服务
+	cnpm i @alicloud/sms-sdk -D
